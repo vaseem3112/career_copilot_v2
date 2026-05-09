@@ -11,7 +11,7 @@ class BaseConfig:
     TESTING                        = False
 
     # Database
-    SQLALCHEMY_DATABASE_URI        = os.getenv("DATABASE_URL", "sqlite:///instance/local.db")
+    SQLALCHEMY_DATABASE_URI        = os.getenv("DATABASE_URL", "sqlite:///local.db")
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ENGINE_OPTIONS      = {"pool_pre_ping": True, "pool_recycle": 300}
 
@@ -68,6 +68,9 @@ class BaseConfig:
         "http://localhost:3000",
         "http://localhost:5173",
         "http://127.0.0.1:3000",
+        "http://localhost:8080",
+        "http://127.0.0.1:8080",
+        "http://10.114.122.53:8080",
     ]
 
     # Logging

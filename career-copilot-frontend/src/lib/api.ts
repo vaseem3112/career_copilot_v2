@@ -31,9 +31,13 @@ export const authApi = {
 };
 
 export const profileApi = {
-  get:        () => api.get("/profile"),
-  update:     (d: object) => api.patch("/profile", d),
-  completion: () => api.get("/profile/completion"),
+  get: () => api.get("/profile"),
+
+  update: (data: any) =>
+    api.put("/profile", data),
+
+  completion: () =>
+    api.get("/profile/completion"),
 };
 
 export const resumeApi = {

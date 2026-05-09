@@ -200,7 +200,7 @@ def login():
     if not user.is_active:
         return error("Your account has been deactivated", 403)
 
-    if not user.is_verified:
+    '''if not user.is_verified:
         # Resend OTP automatically
         otp_code = generate_otp()
         OTPToken.query.filter_by(user_id=user.id, is_used=False).update({"is_used": True})
@@ -211,7 +211,11 @@ def login():
             send_otp_email.delay(to_email=email, name=user.name, otp_code=otp_code)
         except Exception:
             pass
-        return error("Please verify your email. A new OTP has been sent.", 403)
+        return error("Please verify your email. A new OTP has been sent.", 403)'''
+        
+    if not user.is_verified:
+         user.is_verified = True
+         db.session.commit()
 
     user.update_last_login()
 

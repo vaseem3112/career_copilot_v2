@@ -24,7 +24,7 @@ def _get_or_create_profile(user_id: str) -> UserProfile:
 # ─────────────────────────────────────────
 # GET /api/v1/profile
 # ─────────────────────────────────────────
-@profile_bp.route("", methods=["GET"])
+@profile_bp.route("", methods=["GET","PUT"])
 @jwt_required()
 def get_profile():
     user_id = get_jwt_identity()
@@ -37,7 +37,7 @@ def get_profile():
 # ─────────────────────────────────────────
 # PATCH /api/v1/profile
 # ─────────────────────────────────────────
-@profile_bp.route("", methods=["PATCH"])
+@profile_bp.route("", methods=["PUT","PATCH"])
 @jwt_required()
 def update_profile():
     user_id = get_jwt_identity()

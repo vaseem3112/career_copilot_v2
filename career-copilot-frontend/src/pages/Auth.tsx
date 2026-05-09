@@ -55,7 +55,8 @@ export default function Auth() {
     setLoading(true);
     try {
       const { data } = await authApi.login({ email: form.email, password: form.password });
-      setAuth(data.token, data.user);
+      console.log("LOGIN RESPONSE:", data);
+      setAuth(data.access_token || data.token, data.user);
       toast.success("Welcome back!");
       navigate("/dashboard");
     } catch (e: any) {
