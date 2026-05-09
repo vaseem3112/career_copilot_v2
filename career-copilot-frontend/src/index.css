@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 21% 8%;
+    --foreground: 222 18% 93%;
+
+    --card: 222 24% 12%;
+    --card-foreground: 222 18% 93%;
+    --card-hover: 222 25% 15%;
+
+    --popover: 222 24% 12%;
+    --popover-foreground: 222 18% 93%;
+
+    --primary: 217 91% 64%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 217 80% 57%;
+
+    --secondary: 222 22% 16%;
+    --secondary-foreground: 222 18% 93%;
+
+    --muted: 222 22% 16%;
+    --muted-foreground: 218 14% 60%;
+    --text-muted: 218 14% 38%;
+
+    --accent: 217 91% 64%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 156 60% 53%;
+    --warning: 36 78% 57%;
+    --danger: 0 70% 62%;
+    --destructive: 0 70% 62%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 20% 22%;
+    --input: 222 22% 16%;
+    --ring: 217 91% 64%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 222 24% 10%;
+    --sidebar-foreground: 222 18% 93%;
+    --sidebar-primary: 217 91% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 22% 16%;
+    --sidebar-accent-foreground: 222 18% 93%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-ring: 217 91% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html, body, #root {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .card-surface {
+    @apply bg-card border border-border rounded-xl;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  }
+  .pill {
+    @apply inline-flex items-center px-3 py-1 rounded-[20px] text-xs font-medium;
+  }
+  .skeleton {
+    @apply bg-muted/60 rounded animate-pulse;
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.3s ease-out both; }
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in-right { animation: slide-in-right 0.25s ease-out both; }
+
+* { transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform; transition-duration: 0.18s; transition-timing-function: ease; }
